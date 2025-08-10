@@ -1,0 +1,24 @@
+plugins {
+    kotlin("jvm") version "1.8.10"
+    `maven-publish`
+}
+
+group = "com.abood.hentiyomi"
+version = "1.0.0"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.jsoup:jsoup:1.15.3")
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
+}
